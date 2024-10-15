@@ -2,7 +2,7 @@
 // Hier komt een variable voor true/false voor of je het schild hebt.
 // Hier komt een variabele voor de score. Deze begint op 0
 // Hier komt een variabel voor je topscore, deze update pas als hij verbroken is
-// Hier komt een variabele om aan te geven of de game gestart is. 
+// Hier komt een variabele om aan te geven of de game gestart is.
 
 // Hier komt de code voor het starten van de game bij het drukken van een toets.
 
