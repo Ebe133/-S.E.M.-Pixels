@@ -32,6 +32,15 @@ let move_speed = 3;
   
 // Gravity constant value
 let gravity = 0.5;
+
+// Highscore
+let highScore = 0;
+
+// Schild 
+let shield = false;
+
+// Hearts
+let hearts = 1;
   
 // Getting reference to the bird element
 let bird = document.querySelector('.bird');

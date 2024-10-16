@@ -50,7 +50,7 @@ body {
     z-index: 10;
     height: 10vh;
     font-size: 5vh;
-    font-weight: 100;
+    font-weight: 250;
     color: white;
     font-family: 'Public Pixel', sans-serif;
     top: 30vh;
@@ -58,6 +58,10 @@ body {
     text-align: center;
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: black;
+}
+
+.message img {
+    margin-top: 200px;
 }
 
 .score {
