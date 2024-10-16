@@ -1,7 +1,7 @@
-// Background scrolling speed
+// Achtergrond scrollsnelheid
 let move_speed = 3;
   
-// Gravity constant value
+// Gravitatie constante waarde
 let gravity = 0.5;
 
 // Highscore
@@ -10,32 +10,32 @@ let highScore = 0;
 // Schild 
 let shield = false;
 
-// Hearts
+// Hartjes
 let hearts = 1;
   
-// Getting reference to the bird element (assuming it's an <img>)
+// Referentie naar het vogel element (ervan uitgaande dat het een <img> is)
 let bird = document.querySelector('.bird');
 
-// Setting the image sources for BatUp and BatDown
-let batUpSrc = 'images/BatUp.png'; // Path to your BatUp image
-let batDownSrc = 'images/BatDown.png'; // Path to your BatDown image
+// Instellen van de afbeeldingsbronnen voor BatUp en BatDown
+let batUpSrc = 'images/BatUp.png'; // Pad naar je BatUp afbeelding
+let batDownSrc = 'images/BatDown.png'; // Pad naar je BatDown afbeelding
 
-// Getting bird element properties
+// Verkrijgen van eigenschappen van het vogel element
 let bird_props = bird.getBoundingClientRect();
 let background = document.querySelector('.background').getBoundingClientRect();
   
-// Getting reference to the score element
+// Verkrijgen van referentie naar het score element
 let score_val = document.querySelector('.score_val');
 let message = document.querySelector('.message');
 let score_title = document.querySelector('.score_title');
   
-// Setting initial game state to start
+// Instellen van de initiële game status naar starten
 let game_state = 'Start';
   
-// Add an eventlistener for key presses
+// Voeg een eventlistener toe voor toetsindrukken
 document.addEventListener('keydown', (e) => {
   
-  // Start the game if enter key is pressed
+  // Start het spel als de spatiebalk is ingedrukt
   if (e.key == ' ' && game_state != 'Play') {
     document.querySelectorAll('.pipe_sprite').forEach((e) => {
       e.remove();
@@ -49,38 +49,38 @@ document.addEventListener('keydown', (e) => {
     play();
   }
   
-  // Check if spacebar is pressed to change image to BatDown
-  if (e.key == ' ') { // Spacebar key
-    bird.src = batDownSrc; // Change to BatDown
-    bird_dy = -7.6; // Apply upward force
+  // Controleer of de spatiebalk is ingedrukt om de afbeelding naar BatDown te veranderen
+  if (e.key == ' ') { // Spatiebalk toets
+    bird.src = batDownSrc; // Verander naar BatDown
+    bird_dy = -7.6; // Pas opwaartse kracht toe
   }
 });
 
 document.addEventListener('keyup', (e) => {
-  if (e.key == ' ') { // When spacebar is released
-    bird.src = batUpSrc; // Change back to BatUp
+  if (e.key == ' ') { // Wanneer de spatiebalk wordt losgelaten
+    bird.src = batUpSrc; // Verander terug naar BatUp
   }
 });
 
 function play() {
   function move() {
     
-    // Detect if game has ended
+    // Detecteer of het spel is geëindigd
     if (game_state != 'Play') return;
     
-    // Getting reference to all the pipe elements
+    // Verkrijgen van referentie naar alle pijpelementen
     let pipe_sprite = document.querySelectorAll('.pipe_sprite');
     pipe_sprite.forEach((element) => {
       
       let pipe_sprite_props = element.getBoundingClientRect();
       bird_props = bird.getBoundingClientRect();
       
-      // Delete the pipes if they have moved out
-      // of the screen hence saving memory
+      // Verwijder de pijpen als ze uit het scherm zijn verplaatst
+      // om geheugen te besparen
       if (pipe_sprite_props.right <= 0) {
         element.remove();
       } else {
-        // Collision detection with bird and pipes
+        // Botsingdetectie met vogel en pijpen
         if (
           bird_props.left < pipe_sprite_props.left + pipe_sprite_props.width &&
           bird_props.left + bird_props.width > pipe_sprite_props.left &&
@@ -88,13 +88,13 @@ function play() {
           bird_props.top + bird_props.height > pipe_sprite_props.top
         ) {
           
-          // Change game state and end the game if collision occurs
+          // Verander game status en eindig het spel als er een botsing plaatsvindt
           game_state = 'End';
-          message.innerHTML = 'Press Space To Restart';
+          message.innerHTML = 'Druk op Spatie om opnieuw te starten';
           message.style.left = '28vw';
           return;
         } else {
-          // Increase the score if player has successfully dodged the pipe
+          // Verhoog de score als de speler de pijp succesvol heeft ontweken
           if (
             pipe_sprite_props.right < bird_props.left &&
             pipe_sprite_props.right + move_speed >= bird_props.left &&
@@ -121,10 +121,10 @@ function play() {
       }
     });
 
-    // Collision detection with bird and window top and bottom
+    // Botsingdetectie met vogel en boven- en onderkant van het venster
     if (bird_props.top <= 0 || bird_props.bottom >= background.bottom) {
       game_state = 'End';
-      message.innerHTML = 'Press Enter To Restart';
+      message.innerHTML = 'Druk op Enter om opnieuw te starten';
       message.style.left = '28vw';
       return;
     }
@@ -136,23 +136,23 @@ function play() {
 
   let pipe_seperation = 0;
   
-  // Constant value for the gap between two pipes
+  // Constante waarde voor de ruimte tussen twee pijpen
   let pipe_gap = 35;
   function create_pipe() {
     if (game_state != 'Play') return;
     
-    // Create another set of pipes if distance between two pipe has exceeded
+    // Maak een andere set pijpen als de afstand tussen twee pijpen is overschreden
     if (pipe_seperation > 115) {
       pipe_seperation = 0;
       
-      // Calculate random position of pipes on y axis
+      // Bereken willekeurige positie van pijpen op de y-as
       let pipe_posi = Math.floor(Math.random() * 43) + 8;
       let pipe_sprite_inv = document.createElement('div');
       pipe_sprite_inv.className = 'pipe_sprite';
       pipe_sprite_inv.style.top = pipe_posi - 70 + 'vh';
       pipe_sprite_inv.style.left = '100vw';
       
-      // Append the created pipe element in DOM
+      // Voeg het gemaakte pijpelement toe in de DOM
       document.body.appendChild(pipe_sprite_inv);
       let pipe_sprite = document.createElement('div');
       pipe_sprite.className = 'pipe_sprite';
@@ -160,7 +160,7 @@ function play() {
       pipe_sprite.style.left = '100vw';
       pipe_sprite.increase_score = '1';
       
-      // Append the created pipe element in DOM
+      // Voeg het gemaakte pijpelement toe in de DOM
       document.body.appendChild(pipe_sprite);
     }
     pipe_seperation++;
@@ -168,3 +168,9 @@ function play() {
   }
   requestAnimationFrame(create_pipe);
 }
+
+
+// Buggs:
+// Als je het plafond/grond raakt, kan je niet opnieuw spawnen.
+// Hitbox van de Vleermuis is niet goed. (Te Groot)
+// Score op de goede manier laten toepassen.
