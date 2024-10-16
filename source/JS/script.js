@@ -1,32 +1,3 @@
-// Hier zet je neer hoeveel lives je hebt.
-// Hier komt een variable voor true/false voor of je het schild hebt.
-// Hier komt een variabele voor de score. Deze begint op 0
-// Hier komt een variabel voor je topscore, deze update pas als hij verbroken is
-// Hier komt een variabele om aan te geven of de game gestart is.
-
-// Hier komt de code voor het starten van de game bij het drukken van een toets.
-
-// Hier komt de code te staan voor het omhoog gaan met spatie.
-
-// Hier komt de code voor het omlaag vallen.
-
-// Hier wordt het systeem gemaakt, dat de obstakels inlaad met een bepaalde afstand er tussen.
-
-// Hier wordt een script geschreven, dat powerups inlaad. Als je die aanraakt, word de bepaalde variable aangepast.
-
-// Hier komt de code voor het toevoegen van de score. Dit gebeurd elke seconde.
-
-// Hier komt een stuk code, wat kijkt of de highscore verbeterd is. Als dat zo is, dan update hij het variable.
-
-// Hier komt code om te kijken wanneer je de muur of grond raakt, dat laat het "Game Over" scherm komen.
-// Op het game over scherm staat je huidige score en je highscore.
-// Hier komt een stuk om te checken of je een schild, of een extra leven hebt. Als dat zo is, ga je niet af.
-// In dit scherm staat een knop om opnieuw te spelen, en een knop om naar het leaderboard te gaan.
-
-// Hier komt de code, om de highscores van hoog, naar laag te sorteren en in een table te zetten.
-
-// Hier komt de code, om de palen naar je toe te laten komen. Dit gebeurd alleen als het "gameStarted" variable true is.
-
 // Background scrolling speed
 let move_speed = 3;
   
@@ -42,9 +13,13 @@ let shield = false;
 // Hearts
 let hearts = 1;
   
-// Getting reference to the bird element
+// Getting reference to the bird element (assuming it's an <img>)
 let bird = document.querySelector('.bird');
-  
+
+// Setting the image sources for BatUp and BatDown
+let batUpSrc = 'images/BatUp.png'; // Path to your BatUp image
+let batDownSrc = 'images/BatDown.png'; // Path to your BatDown image
+
 // Getting bird element properties
 let bird_props = bird.getBoundingClientRect();
 let background =
@@ -79,7 +54,20 @@ document.addEventListener('keydown', (e) => {
     score_val.innerHTML = '0';
     play();
   }
+  
+  // Check if spacebar is pressed to change image to BatDown
+  if (e.key == ' ') { // Spacebar key
+    bird.src = batDownSrc; // Change to BatDown
+    bird_dy = -7.6; // Apply upward force
+  }
 });
+
+document.addEventListener('keyup', (e) => {
+  if (e.key == ' ') { // When spacebar is released
+    bird.src = batUpSrc; // Change back to BatUp
+  }
+});
+
 function play() {
   function move() {
     
@@ -174,7 +162,7 @@ function play() {
     // if distance between two pipe has exceeded
     // a predefined value
     if (pipe_seperation > 115) {
-      pipe_seperation = 0
+      pipe_seperation = 0;
       
       // Calculate random position of pipes on y axis
       let pipe_posi = Math.floor(Math.random() * 43) + 8;
