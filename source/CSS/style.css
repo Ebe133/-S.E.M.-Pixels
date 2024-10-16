@@ -62,7 +62,8 @@ body {
 }
 
 .message img {
-    margin-top: 250px;
+    margin-top: 280px;
+    width: 200px;
 }
 
 .score {
