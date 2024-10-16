@@ -51,11 +51,11 @@ body {
     height: 10vh;
     font-size: 5vh;
     font-weight: 250;
-    color: white;
-    font-family: 'Public Pixel', sans-serif;
     top: 16vh;
     left: 35vw;
     text-align: center;
+    color: white;
+    font-family: 'Public Pixel', sans-serif;
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: black;
     line-height: 1.5;
@@ -83,3 +83,117 @@ body {
 .score_val {
     color: white;
 }
+
+.game-over-popup {
+    position: fixed;
+    border-radius: 12px;
+    top: 16vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 425px;
+    padding: 20px;
+    background-color: rgba(100, 100, 100, 0.9); /* Semi-transparent dark background */
+    border: 3px solid white;
+    color: #f06292;
+    text-align: center;
+    font-family: 'Public Pixel', sans-serif;
+    z-index: 1000;
+    display: none; /* Hidden by default, shown only on Game Over */
+    box-shadow: 0px 0px 15px 5px #000;
+    
+}
+
+.game-over-popup h1 {
+    margin-top: 15px;
+    font-size: 55px;
+    text-align: center;
+    color: #FB6F2D;
+    font-family: 'Public Pixel', sans-serif;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    line-height: 1.5;
+}
+
+.score-display {
+    margin-top: 25px;
+    font-size: 45px;
+    text-align: center;
+    color: #862FE0;
+    font-family: 'Public Pixel', sans-serif;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    line-height: 1.5;
+}
+
+.buttons {
+    margin-top: 15px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #4E4E4E;
+    color: white;
+    border-radius: 12px;
+    border: 2px solid #000000;
+    cursor: pointer;
+    width: 150px;
+    height: 85px;
+}
+
+.buttons button:hover {
+    background-color: #555;
+}
+
+/* ... rest of the styles ... */
+
+.leaderboard-popup {
+    position: fixed;
+    border-radius: 12px;
+    top: 16vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 425px;
+    padding: 20px;
+    background-color: rgba(100, 100, 100, 0.9); /* Semi-transparent dark background */
+    border: 3px solid white;
+    color: #862FE0;
+    font-family: 'Public Pixel', sans-serif;
+    z-index: 1000;
+    display: none; /* Hidden by default, shown only on Game Over */
+    box-shadow: 0px 0px 15px 5px #000;
+}
+
+.leaderboard-popup h1 {
+    margin-top: 10px;
+    font-size: 24px;
+    text-align: center;
+    color: #FB6F2D;
+    font-family: 'Public Pixel', sans-serif;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    line-height: 1.5;
+    margin-bottom: 15px; /* Ruimte onder de titel */
+}
+
+.leaderboard-display span {
+    margin-bottom: 5px; /* Ruimte tussen de items */
+    font-family: 'Public Pixel', sans-serif;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+.leaderboard-display span:nth-child(1) {
+    font-weight: bold; /* Maak de rang vetgedrukt */
+}
+
+.lbscore {
+    color: #fff; /* Witte scorekleur */
+    text-align: right;
+    font-family: 'Public Pixel', sans-serif;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
