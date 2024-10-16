@@ -26,13 +26,13 @@ body {
     background-position: center;
 }
 
-
 .bird {
     height: 100px;
     width: 160px;
     position: fixed;
     top: 40vh;
-    left: 30vw;
+    left: 50%; /* Plaats de vleermuis in het horizontale midden */
+    transform: translateX(-50%); /* Corrigeert de horizontale uitlijning */
     z-index: 100;
 }
 
@@ -53,15 +53,16 @@ body {
     font-weight: 250;
     color: white;
     font-family: 'Public Pixel', sans-serif;
-    top: 30vh;
+    top: 16vh;
     left: 35vw;
     text-align: center;
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: black;
+    line-height: 1.5;
 }
 
 .message img {
-    margin-top: 200px;
+    margin-top: 250px;
 }
 
 .score {
@@ -74,8 +75,8 @@ body {
     font-family: 'Public Pixel', sans-serif;
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: black;
-    top: 0;
-    left: 0;
+    top: 5px;
+    left: 10px;
 }
 
 .score_val {

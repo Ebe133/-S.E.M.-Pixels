@@ -2,7 +2,7 @@
 let move_speed = 3;
   
 // Gravity constant value
-let gravity = 0.5;
+let gravity = 0.4;
 
 // Highscore
 let highScore = 0;
@@ -22,17 +22,12 @@ let batDownSrc = 'images/BatDown.png'; // Path to your BatDown image
 
 // Getting bird element properties
 let bird_props = bird.getBoundingClientRect();
-let background =
-    document.querySelector('.background')
-            .getBoundingClientRect();
+let background = document.querySelector('.background').getBoundingClientRect();
   
 // Getting reference to the score element
-let score_val =
-    document.querySelector('.score_val');
-let message =
-    document.querySelector('.message');
-let score_title =
-    document.querySelector('.score_title');
+let score_val = document.querySelector('.score_val');
+let message = document.querySelector('.message');
+let score_title = document.querySelector('.score_title');
   
 // Setting initial game state to start
 let game_state = 'Start';
@@ -41,16 +36,15 @@ let game_state = 'Start';
 document.addEventListener('keydown', (e) => {
   
   // Start the game if enter key is pressed
-  if (e.key == 'Enter' &&
-      game_state != 'Play') {
-    document.querySelectorAll('.pipe_sprite')
-              .forEach((e) => {
+  if (e.key == ' ' && game_state != 'Play') {
+    document.querySelectorAll('.pipe_sprite').forEach((e) => {
       e.remove();
     });
     bird.style.top = '40vh';
+    bird.style.left = '50vw';  // Zet de vleermuis in het horizontale midden van het scherm
     game_state = 'Play';
     message.innerHTML = '';
-    score_title.innerHTML = 'Score : ';
+    score_title.innerHTML = 'Score: ';
     score_val.innerHTML = '0';
     play();
   }
@@ -88,35 +82,27 @@ function play() {
       } else {
         // Collision detection with bird and pipes
         if (
-          bird_props.left < pipe_sprite_props.left +
-          pipe_sprite_props.width &&
-          bird_props.left +
-          bird_props.width > pipe_sprite_props.left &&
-          bird_props.top < pipe_sprite_props.top +
-          pipe_sprite_props.height &&
-          bird_props.top +
-          bird_props.height > pipe_sprite_props.top
+          bird_props.left < pipe_sprite_props.left + pipe_sprite_props.width &&
+          bird_props.left + bird_props.width > pipe_sprite_props.left &&
+          bird_props.top < pipe_sprite_props.top + pipe_sprite_props.height &&
+          bird_props.top + bird_props.height > pipe_sprite_props.top
         ) {
           
-          // Change game state and end the game
-          // if collision occurs
+          // Change game state and end the game if collision occurs
           game_state = 'End';
-          message.innerHTML = 'Press Enter To Restart';
+          message.innerHTML = 'Press Space To Restart';
           message.style.left = '28vw';
           return;
         } else {
-          // Increase the score if player
-          // has the successfully dodged the 
+          // Increase the score if player has successfully dodged the pipe
           if (
             pipe_sprite_props.right < bird_props.left &&
-            pipe_sprite_props.right + 
-            move_speed >= bird_props.left &&
+            pipe_sprite_props.right + move_speed >= bird_props.left &&
             element.increase_score == '1'
           ) {
             score_val.innerHTML = +score_val.innerHTML + 1;
           }
-          element.style.left = 
-            pipe_sprite_props.left - move_speed + 'px';
+          element.style.left = pipe_sprite_props.left - move_speed + 'px';
         }
       }
     });
@@ -135,11 +121,8 @@ function play() {
       }
     });
 
-    // Collision detection with bird and
-    // window top and bottom
-
-    if (bird_props.top <= 0 ||
-        bird_props.bottom >= background.bottom) {
+    // Collision detection with bird and window top and bottom
+    if (bird_props.top <= 0 || bird_props.bottom >= background.bottom) {
       game_state = 'End';
       message.innerHTML = 'Press Enter To Restart';
       message.style.left = '28vw';
@@ -158,9 +141,7 @@ function play() {
   function create_pipe() {
     if (game_state != 'Play') return;
     
-    // Create another set of pipes
-    // if distance between two pipe has exceeded
-    // a predefined value
+    // Create another set of pipes if distance between two pipe has exceeded
     if (pipe_seperation > 115) {
       pipe_seperation = 0;
       
