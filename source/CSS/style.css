@@ -146,8 +146,6 @@ body {
     background-color: #555;
 }
 
-/* ... rest of the styles ... */
-
 .leaderboard-popup {
     position: fixed;
     border-radius: 12px;
@@ -197,3 +195,20 @@ body {
     -webkit-text-stroke-color: black;
 }
 
+.pause-popup {
+    position: fixed;
+    border-radius: 12px;
+    top: 16vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 425px;
+    padding: 20px;
+    background-color: rgba(100, 100, 100, 0.9); /* Semi-transparent dark background */
+    border: 3px solid white;
+    color: #862FE0;
+    font-family: 'Public Pixel', sans-serif;
+    z-index: 1000;
+    display: none; /* Hidden by default, shown only on Game Over */
+    box-shadow: 0px 0px 15px 5px #000;
+}
