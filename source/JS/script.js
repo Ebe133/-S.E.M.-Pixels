@@ -2,7 +2,7 @@
 let move_speed = 3;
 
 // Gravity
-let gravity = 0.5;
+let gravity = 0.4;
 
 // Highscore
 let highScore = 0;
