@@ -242,3 +242,7 @@ function play() {
   // Start de score timer
   increaseScore();
 }
+
+const music = document.getElementById('background-music');
+music.volume = 0.5; 
+music.play(); 
