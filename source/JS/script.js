@@ -244,5 +244,5 @@ function play() {
 }
 
 const music = document.getElementById('background-music');
-music.volume = 0.5; 
+music.volume = 0.1; 
 music.play(); 
