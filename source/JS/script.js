@@ -181,9 +181,9 @@ function play() {
     // Verkrijg de bijgewerkte eigenschappen van de vleermuis
     bird_props = bird.getBoundingClientRect();
 
-    // Check voor botsing met de vloer en voer game over uit
-    if (bird_props.bottom >= background.bottom) {
-      gameOver(); // Voer game over uit zodra de vleermuis de vloer raakt
+    // Check voor botsing met de vloer en het plafond en voer game over uit
+    if (bird_props.bottom >= background.bottom || bird_props.top <= background.top) {
+      gameOver(); // Voer game over uit zodra de vleermuis de vloer of het plafond raakt
       return;
     }
 
@@ -244,5 +244,5 @@ function play() {
 }
 
 const music = document.getElementById('background-music');
-music.volume = 0.1; 
-music.play(); 
+music.volume = 0.1;
+music.play();
