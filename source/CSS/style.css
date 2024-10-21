@@ -51,8 +51,9 @@ body {
     height: 10vh;
     font-size: 5vh;
     font-weight: 250;
-    top: 16vh;
-    left: 35vw;
+    top: calc(50% - 5cm);
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     color: white;
     font-family: 'Public Pixel', sans-serif;
@@ -60,6 +61,7 @@ body {
     -webkit-text-stroke-color: black;
     line-height: 1.5;
 }
+
 
 .message img {
     margin-top: 280px;
