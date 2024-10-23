@@ -243,3 +243,7 @@ document.getElementById('music-toggle-switch').addEventListener('change', functi
     music.pause();
   }
 });
+
+function siteReload() {
+  location.reload();
+}
