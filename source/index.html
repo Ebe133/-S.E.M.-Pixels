@@ -42,18 +42,16 @@
         </div>
     </div>
 
-    <div class="pause-popup">
-        <h1>Paused</h1>
-        <div class="pause-text">
-            <span>Paused</span>
-            <div class="buttons">
-                <button class="play-again-btn"><img src="images/playButton.png" alt="PlayButton"></button>
-            </div>
+    <div class="pause-popup" style="display: none;">
+        <h1>Game Paused</h1>
+        <div class="music-toggle">
+            <label for="music-toggle-switch">Music:</label>
+            <button class="music-toggle-btn">Muziek Uit</button> <!-- Nieuwe knop om muziek aan/uit te zetten -->
         </div>
+        <label for="play">P to Start</label>
     </div>
-    
-    <div class="hearts">
-    </div>
+
+    <div class="hearts"></div>
 
     <audio id="death-sound" src="Sounds/die.wav"></audio>
     <audio id="point-sound" src="Sounds/point.wav"></audio>

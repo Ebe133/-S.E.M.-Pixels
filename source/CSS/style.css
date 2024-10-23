@@ -14,6 +14,7 @@ body {
     margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    overflow: hidden; /* Verberg scrollbalken */
 }
 
 .background {
@@ -38,8 +39,8 @@ body {
 
 .pipe_sprite {
     position: fixed;
-    top: 40vh;
-    left: 100vw;
+    top: 40vh; /* Beginpositie van de pijpen, kan dynamisch worden ingesteld */
+    left: 100vw; /* Pijpen starten buiten het zicht */
     height: 70vh;
     width: 6vw;
     background-image: url(/source/images/obstacle.png);
@@ -61,7 +62,6 @@ body {
     -webkit-text-stroke-color: black;
     line-height: 1.5;
 }
-
 
 .message img {
     margin-top: 280px;
@@ -95,15 +95,14 @@ body {
     width: 600px;
     height: 425px;
     padding: 20px;
-    background-color: rgba(100, 100, 100, 0.9); /* Semi-transparent dark background */
+    background-color: rgba(100, 100, 100, 0.9); /* Semi-transparante donkere achtergrond */
     border: 3px solid white;
     color: #f06292;
     text-align: center;
     font-family: 'Public Pixel', sans-serif;
     z-index: 1000;
-    display: none; /* Hidden by default, shown only on Game Over */
+    display: none; /* Verborgen, wordt alleen getoond wanneer het spel afgelopen is */
     box-shadow: 0px 0px 15px 5px #000;
-    
 }
 
 .game-over-popup h1 {
@@ -157,12 +156,12 @@ body {
     width: 600px;
     height: 425px;
     padding: 20px;
-    background-color: rgba(100, 100, 100, 0.9); /* Semi-transparent dark background */
+    background-color: rgba(100, 100, 100, 0.9); /* Semi-transparante donkere achtergrond */
     border: 3px solid white;
     color: #862FE0;
     font-family: 'Public Pixel', sans-serif;
     z-index: 1000;
-    display: none; /* Hidden by default, shown only on Game Over */
+    display: none; /* Verborgen, wordt alleen getoond bij de leaderboard */
     box-shadow: 0px 0px 15px 5px #000;
 }
 
@@ -206,11 +205,30 @@ body {
     width: 600px;
     height: 425px;
     padding: 20px;
-    background-color: rgba(100, 100, 100, 0.9); /* Semi-transparent dark background */
+    background-color: rgba(100, 100, 100, 0.9); /* Semi-transparante donkere achtergrond */
     border: 3px solid white;
-    color: #862FE0;
+    color: #f06292;
+    text-align: center;
     font-family: 'Public Pixel', sans-serif;
-    z-index: 1000;
-    display: none; /* Hidden by default, shown only on Game Over */
+    z-index: 1000; /* Hoog genoeg om boven alle andere elementen te staan */
+    display: none; /* Verborgen, wordt alleen getoond wanneer het spel op pauze staat */
     box-shadow: 0px 0px 15px 5px #000;
+}
+
+.pause-popup h1 {
+    margin-top: 15px;
+    font-size: 55px;
+    text-align: center;
+    color: #FB6F2D;
+    font-family: 'Public Pixel', sans-serif;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    line-height: 1.5;
+}
+
+.music-toggle {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #fff;
 }
