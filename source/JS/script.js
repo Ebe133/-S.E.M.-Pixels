@@ -44,7 +44,6 @@ pointSound.volume = 0.1;
 // Muziek
 const music = document.getElementById('background-music');
 music.volume = 0.1;
-music.play();
 
 // Voeg een eventlistener toe voor toetsindrukken
 document.addEventListener("keydown", (e) => {
@@ -235,15 +234,25 @@ function increaseScore() {
   }
 }
 
-// Event listener voor de muziek toggle
-document.getElementById('music-toggle-switch').addEventListener('change', function() {
-  if (this.checked) {
-    music.play();
-  } else {
-    music.pause();
-  }
+// Voeg deze code toe binnen de DOMContentLoaded event listener
+document.addEventListener("DOMContentLoaded", () => {
+  // Event listener voor de muziek toggle button
+  const musicToggleBtn = document.getElementById('music-toggle-btn');
+  let musicPlaying = false;
+
+  musicToggleBtn.addEventListener('click', function() {
+    if (musicPlaying) {
+      music.pause();
+      musicToggleBtn.innerHTML = "Muziek Aan"; // Verander de knoptekst naar "Aan"
+    } else {
+      music.play();
+      musicToggleBtn.innerHTML = "Muziek Uit"; // Verander de knoptekst naar "Uit"
+    }
+    musicPlaying = !musicPlaying; // Wissel de muziekstatus
+  });
 });
 
+// Functie om de pagina te herladen
 function siteReload() {
   location.reload();
 }

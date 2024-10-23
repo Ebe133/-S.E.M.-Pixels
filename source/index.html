@@ -36,23 +36,23 @@
     <div class="leaderboard-popup">
         <h1>Leaderboard</h1>
         <div class="leaderboard-display">
-            <span style="color: gold;">#1 </span><span>Jan</span><span class="lbscore" style="color: #fff;">- 15</span><br>
-            <span style="color: silver;">#2 </span><span>Klaas</span><span class="lbscore" style="color: #fff;">- 12</span><br>
-            <span style="color: brown;">#3 </span><span>Pieter</span><span class="lbscore" style="color: #fff;">- 10</span>
+            <span>#Soon</span>
         </div>
         <div class="buttons">
             <button class="StartOver" onclick="siteReload()"><img src="images/playButton.png" alt="playButton"></button>
         </div>
     </div>
+    
 
     <div class="pause-popup" style="display: none;">
         <h1>Game Paused</h1>
         <div class="music-toggle">
             <label for="music-toggle-switch">Music:</label>
-            <button class="music-toggle-btn">Muziek Uit</button> <!-- Nieuwe knop om muziek aan/uit te zetten -->
+            <button id="music-toggle-btn" class="music-toggle-btn">Muziek Aan</button> <!-- Nieuwe knop om muziek aan/uit te zetten -->
         </div>
         <label for="play">P to Start</label>
     </div>
+    
 
     <div class="hearts"></div>
 
@@ -65,6 +65,5 @@
     </audio>
 
     <script src="JS/script.js"></script>
-    <script src="JS/leaderboard.js"></script>
 </body>
 </html>

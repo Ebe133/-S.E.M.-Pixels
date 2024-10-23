@@ -1,39 +1,33 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Zorgt ervoor dat padding en borders bij de totale breedte en hoogte worden opgeteld */
 }
 
-html {
-    height: 100%;
-}
-
-body {
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+html, body {
+    height: 100%; /* Zorg ervoor dat de hoogte op 100% is ingesteld */
+    width: 100%; /* Zorg ervoor dat de breedte op 100% is ingesteld */
     overflow: hidden; /* Verberg scrollbalken */
 }
 
 .background {
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
+    position: absolute; /* Zorg ervoor dat de achtergrond het volledige scherm bedekt */
+    top: 0; /* Begin bij de bovenkant */
+    left: 0; /* Begin bij de linkerkant */
+    height: 100%; /* 100% van de hoogte */
+    width: 100%; /* 100% van de breedte */
     background-image: url(/source/images/Background.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-repeat: no-repeat; /* Geen herhaling van de achtergrondafbeelding */
+    background-position: center; /* Centreer de achtergrondafbeelding */
 }
 
 .bird {
     height: 100px;
     width: 160px;
     position: fixed;
-    top: 40vh;
-    left: 50%; 
-    transform: translateX(-50%); 
+    top: 40vh; /* Positie van de vogel */
+    left: 50%; /* Centreer de vogel horizontaal */
+    transform: translateX(-50%); /* Compenseer de breedte van de vogel om perfect te centreren */
     z-index: 100;
 }
 
@@ -43,7 +37,7 @@ body {
     left: 100vw; /* Pijpen starten buiten het zicht */
     height: 70vh;
     width: 6vw;
-    background-image: url(/source/images/obstacle.png);
+    background-image: url(/source/images/obstacle.png); /* Achtergrondafbeelding voor pijpen */
 }
 
 .message {
@@ -52,9 +46,9 @@ body {
     height: 10vh;
     font-size: 5vh;
     font-weight: 250;
-    top: calc(50% - 5cm);
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: calc(50% - 5cm); /* Centreer het bericht verticaal */
+    left: 50%; /* Centreer het bericht horizontaal */
+    transform: translate(-50%, -50%); /* Compenseer de breedte en hoogte om perfect te centreren */
     text-align: center;
     color: white;
     font-family: 'Public Pixel', sans-serif;
@@ -78,8 +72,8 @@ body {
     font-family: 'Public Pixel', sans-serif;
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: black;
-    top: 5px;
-    left: 10px;
+    top: 5px; /* Plaatsing van de score */
+    left: 10px; /* Plaatsing van de score */
 }
 
 .score_val {
@@ -89,20 +83,20 @@ body {
 .game-over-popup {
     position: fixed;
     border-radius: 12px;
-    top: 16vh;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 16vh; /* Plaatsing van het game over venster */
+    left: 50%; /* Centreer het venster horizontaal */
+    transform: translateX(-50%); /* Compenseer de breedte van het venster */
     width: 600px;
     height: 425px;
     padding: 20px;
     background-color: rgba(100, 100, 100, 0.9); /* Semi-transparante donkere achtergrond */
-    border: 3px solid white;
+    border: 3px solid white; /* Witte rand */
     color: #f06292;
     text-align: center;
     font-family: 'Public Pixel', sans-serif;
-    z-index: 1000;
-    display: none; /* Verborgen, wordt alleen getoond wanneer het spel afgelopen is */
-    box-shadow: 0px 0px 15px 5px #000;
+    z-index: 1000; /* Hoog genoeg om boven andere elementen te staan */
+    display: none; /* Verborgen totdat het spel afgelopen is */
+    box-shadow: 0px 0px 15px 5px #000; /* Schaduw voor het venster */
 }
 
 .game-over-popup h1 {
@@ -129,6 +123,7 @@ body {
 
 .buttons {
     margin-top: 15px;
+    text-align: center; /* Centreer de knoppen */
 }
 
 .buttons button {
@@ -137,38 +132,38 @@ body {
     background-color: #4E4E4E;
     color: white;
     border-radius: 12px;
-    border: 2px solid #000000;
+    border: 2px solid #000000; /* Zwarte rand */
     cursor: pointer;
     width: 150px;
     height: 85px;
 }
 
 .buttons button:hover {
-    background-color: #555;
+    background-color: #555; /* Hover-effect */
 }
 
 .leaderboard-popup {
     position: fixed;
     border-radius: 12px;
-    top: 16vh;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 16vh; /* Plaatsing van het leaderboard venster */
+    left: 50%; /* Centreer het venster horizontaal */
+    transform: translateX(-50%); /* Compenseer de breedte van het venster */
     width: 600px;
     height: 425px;
     padding: 20px;
     background-color: rgba(100, 100, 100, 0.9); /* Semi-transparante donkere achtergrond */
-    border: 3px solid white;
-    color: #862FE0;
+    border: 3px solid white; /* Witte rand */
+    color: #ffffff;
     font-family: 'Public Pixel', sans-serif;
-    z-index: 1000;
-    display: none; /* Verborgen, wordt alleen getoond bij de leaderboard */
-    box-shadow: 0px 0px 15px 5px #000;
+    z-index: 1000; /* Hoog genoeg om boven andere elementen te staan */
+    display: none; /* Verborgen totdat het leaderboard wordt getoond */
+    box-shadow: 0px 0px 15px 5px #000; /* Schaduw voor het venster */
+    text-align: center; /* Centreer alle tekst in de popup */
 }
 
 .leaderboard-popup h1 {
     margin-top: 10px;
     font-size: 24px;
-    text-align: center;
     color: #FB6F2D;
     font-family: 'Public Pixel', sans-serif;
     -webkit-text-stroke-width: 1px;
@@ -177,11 +172,17 @@ body {
     margin-bottom: 15px; /* Ruimte onder de titel */
 }
 
+.leaderboard-display {
+    margin-bottom: 20px; /* Ruimte onder de scores */
+}
+
 .leaderboard-display span {
     margin-bottom: 5px; /* Ruimte tussen de items */
     font-family: 'Public Pixel', sans-serif;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
+    display: block; /* Zorg ervoor dat elke score op een nieuwe regel staat */
+    text-align: center; /* Centreer de score tekst */
 }
 
 .leaderboard-display span:nth-child(1) {
@@ -190,29 +191,38 @@ body {
 
 .lbscore {
     color: #fff; /* Witte scorekleur */
-    text-align: right;
     font-family: 'Public Pixel', sans-serif;
+    font-size: 250;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
 }
 
+/* Knoppen in de leaderboard-popup */
+.leaderboard-popup button {
+    padding: 10px 20px;
+    margin: 10px;
+    width: 150px; /* Zelfde breedte voor knoppen */
+    height: 85px; /* Zelfde hoogte voor knoppen */
+}
+
+
 .pause-popup {
     position: fixed;
     border-radius: 12px;
-    top: 16vh;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 16vh; /* Plaatsing van het pauze venster */
+    left: 50%; /* Centreer het venster horizontaal */
+    transform: translateX(-50%); /* Compenseer de breedte van het venster */
     width: 600px;
     height: 425px;
     padding: 20px;
     background-color: rgba(100, 100, 100, 0.9); /* Semi-transparante donkere achtergrond */
-    border: 3px solid white;
+    border: 3px solid white; /* Witte rand */
     color: #f06292;
     text-align: center;
     font-family: 'Public Pixel', sans-serif;
-    z-index: 1000; /* Hoog genoeg om boven alle andere elementen te staan */
-    display: none; /* Verborgen, wordt alleen getoond wanneer het spel op pauze staat */
-    box-shadow: 0px 0px 15px 5px #000;
+    z-index: 1000; /* Hoog genoeg om boven andere elementen te staan */
+    display: none; /* Verborgen totdat het spel op pauze staat */
+    box-shadow: 0px 0px 15px 5px #000; /* Schaduw voor het venster */
 }
 
 .pause-popup h1 {
@@ -230,5 +240,5 @@ body {
     margin-top: 30px;
     margin-bottom: 30px;
     font-size: 24px;
-    color: #fff;
+    color: #fff; /* Kleur van de muziek toggle */
 }
