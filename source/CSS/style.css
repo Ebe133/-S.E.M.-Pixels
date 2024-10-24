@@ -53,12 +53,12 @@ html, body {
     color: white;
     font-family: 'Public Pixel', sans-serif;
     -webkit-text-stroke-width: 3px;
-    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-color: #2A3048;
     line-height: 1.5;
 }
 
 .message img {
-    margin-top: 100px;
+    margin-top: 125px;
     width: 200px;
 }
 
@@ -71,7 +71,7 @@ html, body {
     color: white;
     font-family: 'Public Pixel', sans-serif;
     -webkit-text-stroke-width: 3px;
-    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-color: #2A3048;
     top: 5px; /* Plaatsing van de score */
     left: 10px; /* Plaatsing van de score */
 }
@@ -95,7 +95,6 @@ html, body {
     font-family: 'Public Pixel', sans-serif;
     z-index: 1000; /* Hoog genoeg om boven andere elementen te staan */
     display: none; /* Verborgen totdat het spel afgelopen is */
-    box-shadow: 0px 0px 15px 5px #000; /* Schaduw voor het venster */
 }
 
 .game-over-popup h1, .leaderboard-popup h1, .pause-popup h1 {
@@ -111,12 +110,12 @@ html, body {
 
 .score-display {
     margin-top: 25px;
-    font-size: 45px;
+    font-size: 30px;
     text-align: center;
     color: #862FE0;
     font-family: 'Public Pixel', sans-serif;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-color: #2A3048;
     line-height: 1.5;
 }
 
@@ -128,9 +127,8 @@ html, body {
 .buttons button {
     padding: 10px 20px;
     margin: 10px;
-    /* background-image: url(/source/images/buttonBackground.png); Achtergrond voor de knoppen */
+    background-image: url(buttonBackground.png);
     background-color: #4E4E4E;
-    border: 2px solid black;
     background-size: cover; /* Zorg ervoor dat de achtergrondafbeelding de hele knop bedekt */
     color: white;
     border-radius: 12px;
@@ -151,22 +149,19 @@ html, body {
     display: none; /* Verborgen totdat het spel gepauzeerd is */
 }
 
+.pause-popup label {
+    margin-top: 50px;
+    font-size: 25px;
+}
+
+.pause-popup p {
+    text-align: center;
+    margin-top: 200px;
+}
+
 .music-toggle {
     text-align: center; /* Centreer de muziek toggle */
-}
-
-.music-toggle-btn {
-    margin-top: 10px;
-    background-color: #4E4E4E;
-    color: white;
-    border-radius: 12px;
-    border: 2px solid #000000;
-    cursor: pointer;
-    padding: 10px 20px;
-}
-
-.music-toggle-btn:hover {
-    background-color: #555; /* Hover-effect voor muziek toggle */
+    line-height: 25px;
 }
 
 .hearts {
