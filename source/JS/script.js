@@ -25,6 +25,7 @@ let background = document.querySelector(".background").getBoundingClientRect();
 let score_val = document.querySelector(".score_val");
 let message = document.querySelector(".message");
 let score_title = document.querySelector(".score_title");
+let hearticon = document.querySelector(".hearts");
 
 // Huidige score
 let currentScore = 0;
@@ -83,6 +84,31 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+// Voeg een eventlistener toe voor muisklikken
+document.addEventListener("mousedown", (e) => {
+  if (game_state === "Start" || game_state === "Waiting") {
+    game_state = "Play";
+    message.style.display = "none";
+    play();
+    jumpSound.currentTime = 0;
+    jumpSound.play();
+  }
+
+  if (game_state === "Play") {
+    bird.src = batDownSrc;
+    bird_dy = -7.6; // Zorg ervoor dat dit dezelfde waarde is als in de keydown event
+    jumpSound.currentTime = 0;
+    jumpSound.play();
+  }
+});
+
+// Reset de vleugels als de muisknop wordt losgelaten
+document.addEventListener("mouseup", (e) => {
+  if (game_state === "Play") {
+    bird.src = batUpSrc; // Zet de vleugels terug omhoog
+  }
+});
+
 document.addEventListener("keyup", (e) => {
   if (e.key === " " && game_state === "Play") {
     bird.src = batUpSrc;
@@ -99,7 +125,7 @@ function resetGame() {
   pipe_seperation = 0;
   game_state = "Start";
   message.style.display = "block";
-  message.innerHTML = "Druk op Spatie om opnieuw te beginnen";
+  message.innerHTML = "Druk op Spatie of klik om opnieuw te beginnen";
 }
 
 // Functie om de highscore op te slaan in localStorage
@@ -113,6 +139,8 @@ function gameOver() {
   deathSound.currentTime = 0;
   deathSound.play();
   document.querySelector(".game-over-popup").style.display = "block";
+  document.querySelector(".hearts").style.display = "none";
+  document.querySelector(".score").style.display = "none";
 
   let currentScoreDisplay = document.querySelector(".current-score");
   let bestScoreDisplay = document.querySelector(".best-score");
@@ -227,32 +255,35 @@ function apply_gravity() {
 let scoreTimer;
 function increaseScore() {
   if (game_state === "Play") {
-    score_val.innerHTML = +score_val.innerHTML + 1; // Verhoog de score met 1
-    pointSound.currentTime = 0; // Reset de tijd van het geluid
-    pointSound.play(); // Speel het punt geluid
-    scoreTimer = setTimeout(increaseScore, 1000); // 1000ms = 1 seconde
+    score_val.innerHTML = +score_val.innerHTML + 1;
+    scoreTimer = setTimeout(increaseScore, 1000);
   }
 }
 
-// Voeg deze code toe binnen de DOMContentLoaded event listener
+// Startmenu
 document.addEventListener("DOMContentLoaded", () => {
-  // Event listener voor de muziek toggle button
-  const musicToggleBtn = document.getElementById('music-toggle-btn');
-  let musicPlaying = false;
+  document.querySelector(".start-popup").style.display = "block"; // Toon het startmenu
 
-  musicToggleBtn.addEventListener('click', function() {
+  document.querySelector(".start-btn").addEventListener("click", () => {
+    resetGame(); // Reset het spel bij het starten
+    document.querySelector(".start-popup").style.display = "none"; // Verberg het startmenu
+    play(); // Begin met spelen
+  });
+
+  // Pauzeren en herstarten met muziek
+  let musicPlaying = false;
+  const musicButton = document.querySelector(".music-btn");
+  musicButton.addEventListener("click", () => {
     if (musicPlaying) {
       music.pause();
-      musicToggleBtn.innerHTML = "Muziek Aan"; // Verander de knoptekst naar "Aan"
+      musicPlaying = false;
     } else {
       music.play();
-      musicToggleBtn.innerHTML = "Muziek Uit"; // Verander de knoptekst naar "Uit"
+      musicPlaying = true;
     }
-    musicPlaying = !musicPlaying; // Wissel de muziekstatus
   });
 });
 
-// Functie om de pagina te herladen
 function siteReload() {
   location.reload();
 }

@@ -14,13 +14,14 @@
     <div class="message">
         The Flying Bat <br>
         <span style="color: #58D858;">Get Ready!</span><br>
-        <span style="opacity: 0.5;">Space to Start</span><br>
-        <img src="images/Controls.png" alt="Controls">
+        <img src="images/taptap.png" alt="Tap"><br>
+        <img src="images/Controls.png" alt="Controls" style="align-items: flex-start;">
     </div>
     <div class="score">
         <span class="score_title"></span>
         <span class="score_val"></span>
     </div>
+    
     <div class="game-over-popup">
         <h1>Game Over</h1>
         <div class="score-display">
@@ -36,25 +37,24 @@
     <div class="leaderboard-popup">
         <h1>Leaderboard</h1>
         <div class="leaderboard-display">
-            <span>#Soon</span>
         </div>
         <div class="buttons">
             <button class="StartOver" onclick="siteReload()"><img src="images/playButton.png" alt="playButton"></button>
         </div>
     </div>
-    
 
     <div class="pause-popup" style="display: none;">
         <h1>Game Paused</h1>
         <div class="music-toggle">
             <label for="music-toggle-switch">Music:</label>
-            <button id="music-toggle-btn" class="music-toggle-btn">Muziek Aan</button> <!-- Nieuwe knop om muziek aan/uit te zetten -->
+            <button id="music-toggle-btn" class="music-toggle-btn">Muziek Aan</button>
         </div>
         <label for="play">P to Start</label>
     </div>
-    
 
-    <div class="hearts"></div>
+    <div class="hearts">
+        <img src="images/heart.png" alt="">
+    </div>
 
     <audio id="death-sound" src="Sounds/die.wav"></audio>
     <audio id="point-sound" src="Sounds/point.wav"></audio>

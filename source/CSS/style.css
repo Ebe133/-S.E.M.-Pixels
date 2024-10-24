@@ -58,7 +58,7 @@ html, body {
 }
 
 .message img {
-    margin-top: 280px;
+    margin-top: 100px;
     width: 200px;
 }
 
@@ -80,28 +80,27 @@ html, body {
     color: white;
 }
 
-.game-over-popup {
+.game-over-popup, .leaderboard-popup, .pause-popup {
     position: fixed;
     border-radius: 12px;
-    top: 16vh; /* Plaatsing van het game over venster */
+    top: 16vh; /* Plaatsing van de vensters */
     left: 50%; /* Centreer het venster horizontaal */
     transform: translateX(-50%); /* Compenseer de breedte van het venster */
-    width: 600px;
-    height: 425px;
+    width: 512px; /* Brete van de UI background */
+    height: 364px; /* Hoogte van de UI background */
     padding: 20px;
-    background-color: rgba(100, 100, 100, 0.9); /* Semi-transparante donkere achtergrond */
-    border: 3px solid white; /* Witte rand */
-    color: #f06292;
-    text-align: center;
+    background-image: url(/source/images/uiBackground.png); /* Achtergrond voor de UI */
+    background-size: cover; /* Zorg ervoor dat de achtergrondafbeelding de hele ruimte bedekt */
+    color: #ffffff;
     font-family: 'Public Pixel', sans-serif;
     z-index: 1000; /* Hoog genoeg om boven andere elementen te staan */
     display: none; /* Verborgen totdat het spel afgelopen is */
     box-shadow: 0px 0px 15px 5px #000; /* Schaduw voor het venster */
 }
 
-.game-over-popup h1 {
+.game-over-popup h1, .leaderboard-popup h1, .pause-popup h1 {
     margin-top: 15px;
-    font-size: 55px;
+    font-size: 40px;
     text-align: center;
     color: #FB6F2D;
     font-family: 'Public Pixel', sans-serif;
@@ -122,123 +121,64 @@ html, body {
 }
 
 .buttons {
-    margin-top: 15px;
+    margin-top: 100px;
     text-align: center; /* Centreer de knoppen */
 }
 
 .buttons button {
     padding: 10px 20px;
     margin: 10px;
+    /* background-image: url(/source/images/buttonBackground.png); Achtergrond voor de knoppen */
     background-color: #4E4E4E;
+    border: 2px solid black;
+    background-size: cover; /* Zorg ervoor dat de achtergrondafbeelding de hele knop bedekt */
     color: white;
     border-radius: 12px;
-    border: 2px solid #000000; /* Zwarte rand */
     cursor: pointer;
-    width: 150px;
-    height: 85px;
+    width: 200px;
+    height: 100px;
 }
 
 .buttons button:hover {
-    background-color: #555; /* Hover-effect */
+    opacity: 0.8; /* Hover-effect */
 }
 
 .leaderboard-popup {
-    position: fixed;
-    border-radius: 12px;
-    top: 16vh; /* Plaatsing van het leaderboard venster */
-    left: 50%; /* Centreer het venster horizontaal */
-    transform: translateX(-50%); /* Compenseer de breedte van het venster */
-    width: 600px;
-    height: 425px;
-    padding: 20px;
-    background-color: rgba(100, 100, 100, 0.9); /* Semi-transparante donkere achtergrond */
-    border: 3px solid white; /* Witte rand */
-    color: #ffffff;
-    font-family: 'Public Pixel', sans-serif;
-    z-index: 1000; /* Hoog genoeg om boven andere elementen te staan */
     display: none; /* Verborgen totdat het leaderboard wordt getoond */
-    box-shadow: 0px 0px 15px 5px #000; /* Schaduw voor het venster */
-    text-align: center; /* Centreer alle tekst in de popup */
 }
-
-.leaderboard-popup h1 {
-    margin-top: 10px;
-    font-size: 24px;
-    color: #FB6F2D;
-    font-family: 'Public Pixel', sans-serif;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    line-height: 1.5;
-    margin-bottom: 15px; /* Ruimte onder de titel */
-}
-
-.leaderboard-display {
-    margin-bottom: 20px; /* Ruimte onder de scores */
-}
-
-.leaderboard-display span {
-    margin-bottom: 5px; /* Ruimte tussen de items */
-    font-family: 'Public Pixel', sans-serif;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    display: block; /* Zorg ervoor dat elke score op een nieuwe regel staat */
-    text-align: center; /* Centreer de score tekst */
-}
-
-.leaderboard-display span:nth-child(1) {
-    font-weight: bold; /* Maak de rang vetgedrukt */
-}
-
-.lbscore {
-    color: #fff; /* Witte scorekleur */
-    font-family: 'Public Pixel', sans-serif;
-    font-size: 250;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-}
-
-/* Knoppen in de leaderboard-popup */
-.leaderboard-popup button {
-    padding: 10px 20px;
-    margin: 10px;
-    width: 150px; /* Zelfde breedte voor knoppen */
-    height: 85px; /* Zelfde hoogte voor knoppen */
-}
-
 
 .pause-popup {
-    position: fixed;
-    border-radius: 12px;
-    top: 16vh; /* Plaatsing van het pauze venster */
-    left: 50%; /* Centreer het venster horizontaal */
-    transform: translateX(-50%); /* Compenseer de breedte van het venster */
-    width: 600px;
-    height: 425px;
-    padding: 20px;
-    background-color: rgba(100, 100, 100, 0.9); /* Semi-transparante donkere achtergrond */
-    border: 3px solid white; /* Witte rand */
-    color: #f06292;
-    text-align: center;
-    font-family: 'Public Pixel', sans-serif;
-    z-index: 1000; /* Hoog genoeg om boven andere elementen te staan */
-    display: none; /* Verborgen totdat het spel op pauze staat */
-    box-shadow: 0px 0px 15px 5px #000; /* Schaduw voor het venster */
-}
-
-.pause-popup h1 {
-    margin-top: 15px;
-    font-size: 55px;
-    text-align: center;
-    color: #FB6F2D;
-    font-family: 'Public Pixel', sans-serif;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    line-height: 1.5;
+    display: none; /* Verborgen totdat het spel gepauzeerd is */
 }
 
 .music-toggle {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    font-size: 24px;
-    color: #fff; /* Kleur van de muziek toggle */
+    text-align: center; /* Centreer de muziek toggle */
 }
+
+.music-toggle-btn {
+    margin-top: 10px;
+    background-color: #4E4E4E;
+    color: white;
+    border-radius: 12px;
+    border: 2px solid #000000;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+.music-toggle-btn:hover {
+    background-color: #555; /* Hover-effect voor muziek toggle */
+}
+
+.hearts {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000; /* Hoog genoeg om zichtbaar te zijn */
+}
+
+.hearts img {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+}
+
