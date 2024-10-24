@@ -16,7 +16,7 @@ html, body {
     left: 0; /* Begin bij de linkerkant */
     height: 100%; /* 100% van de hoogte */
     width: 100%; /* 100% van de breedte */
-    background-image: url(/source/images/Background.png);
+    background-image: url(Background.png);
     background-repeat: no-repeat; /* Geen herhaling van de achtergrondafbeelding */
     background-position: center; /* Centreer de achtergrondafbeelding */
 }
@@ -37,7 +37,7 @@ html, body {
     left: 100vw; /* Pijpen starten buiten het zicht */
     height: 70vh;
     width: 6vw;
-    background-image: url(/source/images/obstacle.png); /* Achtergrondafbeelding voor pijpen */
+    background-image: url(obstacle.png); /* Achtergrondafbeelding voor pijpen */
 }
 
 .message {
@@ -89,7 +89,7 @@ html, body {
     width: 512px; /* Brete van de UI background */
     height: 364px; /* Hoogte van de UI background */
     padding: 20px;
-    background-image: url(/source/images/uiBackground.png); /* Achtergrond voor de UI */
+    background-image: url(uiBackground.png); /* Achtergrond voor de UI */
     background-size: cover; /* Zorg ervoor dat de achtergrondafbeelding de hele ruimte bedekt */
     color: #ffffff;
     font-family: 'Public Pixel', sans-serif;
