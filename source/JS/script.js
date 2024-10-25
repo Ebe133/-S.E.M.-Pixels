@@ -68,7 +68,6 @@ document.addEventListener("keydown", (e) => {
     if (game_state === "Play") {
       game_state = "Paused";
       document.querySelector(".pause-popup").style.display = "block";
-      // Stop alle bewegingen en timers
       cancelAnimationFrame(moveAnimation);
       cancelAnimationFrame(gravityAnimation);
       cancelAnimationFrame(pipeAnimation);
@@ -76,11 +75,10 @@ document.addEventListener("keydown", (e) => {
     } else if (game_state === "Paused") {
       game_state = "Play";
       document.querySelector(".pause-popup").style.display = "none";
-      // Herstart de beweging en zwaartekracht
       moveAnimation = requestAnimationFrame(move);
       gravityAnimation = requestAnimationFrame(apply_gravity);
       pipeAnimation = requestAnimationFrame(create_pipe);
-      increaseScore(); // Herstart de score teller
+      increaseScore();
     }
   }
 });
@@ -97,7 +95,7 @@ document.addEventListener("mousedown", (e) => {
 
   if (game_state === "Play") {
     bird.src = batDownSrc;
-    bird_dy = -7.6; // Zorg ervoor dat dit dezelfde waarde is als in de keydown event
+    bird_dy = -7.6;
     jumpSound.currentTime = 0;
     jumpSound.play();
   }
@@ -106,7 +104,7 @@ document.addEventListener("mousedown", (e) => {
 // Reset de vleugels als de muisknop wordt losgelaten
 document.addEventListener("mouseup", (e) => {
   if (game_state === "Play") {
-    bird.src = batUpSrc; // Zet de vleugels terug omhoog
+    bird.src = batUpSrc;
   }
 });
 
@@ -122,6 +120,7 @@ function resetGame() {
   bird.style.top = "40vh";
   bird.style.left = "50vw";
   score_val.innerHTML = "0";
+  currentScore = 0; // Reset de huidige score alleen bij opnieuw spelen
   bird_dy = 0;
   pipe_seperation = 0;
   game_state = "Start";
@@ -140,8 +139,6 @@ function gameOver() {
   deathSound.currentTime = 0;
   deathSound.play();
   document.querySelector(".game-over-popup").style.display = "block";
-  document.querySelector(".hearts").style.display = "none";
-  document.querySelector(".score").style.display = "none";
 
   let currentScoreDisplay = document.querySelector(".current-score");
   let bestScoreDisplay = document.querySelector(".best-score");
@@ -152,7 +149,7 @@ function gameOver() {
   // Controleer en sla de highscore op
   if (currentScore > highScore) {
     highScore = currentScore;
-    saveHighScore(highScore); // Sla de nieuwe highscore op
+    saveHighScore(highScore);
   }
 
   bestScoreDisplay.innerHTML = highScore;
@@ -198,7 +195,7 @@ function create_pipe() {
     document.body.appendChild(pipe_sprite_inv);
     let pipe_sprite = document.createElement("div");
     pipe_sprite.className = "pipe_sprite";
-    pipe_sprite.style.top = pipe_posi + 35 + "vh"; // Zorg ervoor dat er voldoende ruimte is tussen pijpen
+    pipe_sprite.style.top = pipe_posi + 35 + "vh";
     pipe_sprite.style.left = "100vw";
     pipe_sprite.increase_score = "1";
 
@@ -270,18 +267,14 @@ function increaseScore() {
 document.querySelector(".music-toggle").addEventListener("click", () => {
   if (music.paused) {
     music.play();
-    document.querySelector(".music-toggle").innerHTML = "Music Off";
+    document.querySelector(".music-toggle").innerHTML = "🔊";
   } else {
     music.pause();
-    document.querySelector(".music-toggle").innerHTML = "Music On";
+    document.querySelector(".music-toggle").innerHTML = "🔇";
   }
 });
 
-// Start het spel met de pop-up
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector(".start-popup").style.display = "block";
-});
-
+// Refresh de site volledig
 function siteReload() {
   location.reload();
 }
