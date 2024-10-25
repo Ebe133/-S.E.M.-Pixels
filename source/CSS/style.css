@@ -1,43 +1,43 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Zorgt ervoor dat padding en borders bij de totale breedte en hoogte worden opgeteld */
+    box-sizing: border-box; 
 }
 
 html, body {
-    height: 100%; /* Zorg ervoor dat de hoogte op 100% is ingesteld */
-    width: 100%; /* Zorg ervoor dat de breedte op 100% is ingesteld */
-    overflow: hidden; /* Verberg scrollbalken */
+    height: 100%; 
+    width: 100%; 
+    overflow: hidden; 
 }
 
 .background {
-    position: absolute; /* Zorg ervoor dat de achtergrond het volledige scherm bedekt */
-    top: 0; /* Begin bij de bovenkant */
-    left: 0; /* Begin bij de linkerkant */
-    height: 100%; /* 100% van de hoogte */
-    width: 100%; /* 100% van de breedte */
+    position: absolute; 
+    top: 0;
+    left: 0; 
+    height: 100%; 
+    width: 100%; 
     background-image: url(Background.png);
-    background-repeat: no-repeat; /* Geen herhaling van de achtergrondafbeelding */
-    background-position: center; /* Centreer de achtergrondafbeelding */
+    background-repeat: no-repeat; 
+    background-position: center; 
 }
 
 .bird {
     height: 100px;
     width: 160px;
     position: fixed;
-    top: 40vh; /* Positie van de vogel */
-    left: 50%; /* Centreer de vogel horizontaal */
-    transform: translateX(-50%); /* Compenseer de breedte van de vogel om perfect te centreren */
+    top: 40vh; 
+    left: 50%; 
+    transform: translateX(-50%); 
     z-index: 100;
 }
 
 .pipe_sprite {
     position: fixed;
-    top: 40vh; /* Beginpositie van de pijpen, kan dynamisch worden ingesteld */
-    left: 100vw; /* Pijpen starten buiten het zicht */
+    top: 40vh; 
+    left: 100vw; 
     height: 70vh;
     width: 6vw;
-    background-image: url(obstacle.png); /* Achtergrondafbeelding voor pijpen */
+    background-image: url(obstacle.png); 
 }
 
 .message {
@@ -46,9 +46,9 @@ html, body {
     height: 10vh;
     font-size: 5vh;
     font-weight: 250;
-    top: calc(50% - 5cm); /* Centreer het bericht verticaal */
-    left: 50%; /* Centreer het bericht horizontaal */
-    transform: translate(-50%, -50%); /* Compenseer de breedte en hoogte om perfect te centreren */
+    top: calc(50% - 5cm); 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
     text-align: center;
     color: white;
     font-family: 'Public Pixel', sans-serif;
@@ -72,8 +72,8 @@ html, body {
     font-family: 'Public Pixel', sans-serif;
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: #2A3048;
-    top: 5px; /* Plaatsing van de score */
-    left: 10px; /* Plaatsing van de score */
+    top: 5px; 
+    left: 10px; 
 }
 
 .score_val {
@@ -83,18 +83,18 @@ html, body {
 .game-over-popup, .leaderboard-popup, .pause-popup {
     position: fixed;
     border-radius: 12px;
-    top: 16vh; /* Plaatsing van de vensters */
-    left: 50%; /* Centreer het venster horizontaal */
-    transform: translateX(-50%); /* Compenseer de breedte van het venster */
-    width: 512px; /* Brete van de UI background */
-    height: 364px; /* Hoogte van de UI background */
+    top: 16vh; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 512px; 
+    height: 364px; 
     padding: 20px;
-    background-image: url(uiBackground.png); /* Achtergrond voor de UI */
-    background-size: cover; /* Zorg ervoor dat de achtergrondafbeelding de hele ruimte bedekt */
+    background-image: url(uiBackground.png); 
+    background-size: cover; 
     color: #ffffff;
     font-family: 'Public Pixel', sans-serif;
-    z-index: 1000; /* Hoog genoeg om boven andere elementen te staan */
-    display: none; /* Verborgen totdat het spel afgelopen is */
+    z-index: 1000; 
+    display: none; 
 }
 
 .game-over-popup h1, .leaderboard-popup h1, .pause-popup h1 {
@@ -121,7 +121,7 @@ html, body {
 
 .buttons {
     margin-top: 100px;
-    text-align: center; /* Centreer de knoppen */
+    text-align: center; 
 }
 
 .buttons button {
@@ -129,7 +129,7 @@ html, body {
     margin: 10px;
     background-image: url(buttonBackground.png);
     background-color: #4E4E4E;
-    background-size: cover; /* Zorg ervoor dat de achtergrondafbeelding de hele knop bedekt */
+    background-size: cover; 
     color: white;
     border-radius: 12px;
     cursor: pointer;
@@ -138,15 +138,15 @@ html, body {
 }
 
 .buttons button:hover {
-    opacity: 0.8; /* Hover-effect */
+    opacity: 0.8;
 }
 
 .leaderboard-popup {
-    display: none; /* Verborgen totdat het leaderboard wordt getoond */
+    display: none; 
 }
 
 .pause-popup {
-    display: none; /* Verborgen totdat het spel gepauzeerd is */
+    display: none; 
 }
 
 .pause-popup label {
@@ -160,7 +160,7 @@ html, body {
 }
 
 .music-toggle {
-    text-align: center; /* Centreer de muziek toggle */
+    text-align: center; 
     line-height: 25px;
 }
 
@@ -168,7 +168,7 @@ html, body {
     position: fixed;
     top: 10px;
     right: 10px;
-    z-index: 1000; /* Hoog genoeg om zichtbaar te zijn */
+    z-index: 1000; 
 }
 
 .hearts img {
