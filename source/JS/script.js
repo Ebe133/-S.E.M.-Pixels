@@ -267,10 +267,10 @@ function increaseScore() {
 document.querySelector(".music-toggle").addEventListener("click", () => {
   if (music.paused) {
     music.play();
-    document.querySelector(".music-toggle").innerHTML = "🔊";
+    document.querySelector(".music-toggle").innerHTML = "Music On";
   } else {
     music.pause();
-    document.querySelector(".music-toggle").innerHTML = "🔇";
+    document.querySelector(".music-toggle").innerHTML = "Music Off";
   }
 });
 
